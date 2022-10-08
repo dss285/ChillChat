@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.DataModels", "Chi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.Services", "ChillChat.Services\ChillChat.Services.csproj", "{52FF0561-3161-4024-A1AD-1065F22E9EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillChat.UnitTests", "ChillChat.UnitTests\ChillChat.UnitTests.csproj", "{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.UnitTests", "ChillChat.UnitTests\ChillChat.UnitTests.csproj", "{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillChat.Web", "ChillChat.Web\ChillChat.Web.csproj", "{4D444536-09F2-441A-9A4D-24D9F5C98E41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

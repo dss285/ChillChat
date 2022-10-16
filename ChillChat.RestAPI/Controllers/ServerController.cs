@@ -50,6 +50,11 @@ namespace ChillChat.RestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var ser = new ServerService(_repository);
+            var dbModel = ser.Find(t => t.ServerId == id);
+            if(dbModel != null)
+                ser.Delete(dbModel);
+
         }
     }
 }

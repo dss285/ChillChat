@@ -19,31 +19,4 @@ namespace ChillChat.DataModels
         {
         }
     }
-    public class TransactionWrapper : IDisposable
-    {
-        private bool _ownsTransaction;
-        private IDbContextTransaction _transaction;
-
-        public TransactionWrapper(IDbContextTransaction transaction, bool ownsTransaction)
-        {
-            _transaction = transaction;
-            _ownsTransaction = ownsTransaction;
-        }
-
-        public void Dispose()
-        {
-            if (_ownsTransaction)
-                _transaction.Dispose();
-        }
-        public void Rollback()
-        {
-            if (_ownsTransaction)
-                _transaction.Rollback();
-        }
-        public void Commit()
-        {
-            if (_ownsTransaction)
-                _transaction.Commit();
-        }
-    }
 }

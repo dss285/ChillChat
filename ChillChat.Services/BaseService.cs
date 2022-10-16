@@ -69,5 +69,14 @@ namespace ChillChat.Services
         {
             _repository.Insert(entity);
         }
+        public void Delete(TEntity entity, bool soft=true)
+        {
+            if (soft)
+                _repository.SoftDelete(entity);
+            else
+                _repository.Delete(entity);
+
+            _repository.SaveChanges();
+        }
     }
 }

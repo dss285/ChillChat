@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using NodaTime;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
@@ -20,16 +21,16 @@ namespace Aeon.DataModels
         public ObjectInfo()
         {
             Deleted = false;
-            Creator = "god";
-            Modifier = "god";
-            Modified = DateTimeOffset.UtcNow;
-            Created = DateTimeOffset.UtcNow;
+            Creator = "internal";
+            Modifier = "internal";
+            Modified = SystemClock.Instance.GetCurrentInstant().InUtc();
+            Created = SystemClock.Instance.GetCurrentInstant().InUtc();
         }
         public bool Deleted { get; set; }
         public string Creator { get; set; }
         public string Modifier { get; set; }
-        public DateTimeOffset Modified { get; set; }
-        public DateTimeOffset Created { get; set; }
+        public ZonedDateTime Modified { get; set; }
+        public ZonedDateTime Created { get; set; }
     }
     public interface IObjectInfo
     {
@@ -37,6 +38,7 @@ namespace Aeon.DataModels
     }
     public abstract class BaseDbContext : DbContext, IDbContext
     {
+        protected abstract string ConnectionString { get; set; }
         public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
         {
             return Set<TEntity>();
@@ -76,6 +78,11 @@ namespace Aeon.DataModels
             {
                 return new TransactionWrapper(transaction, false);
             }
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql(ConnectionString, 
+                o => o.UseNodaTime());
         }
     }
 

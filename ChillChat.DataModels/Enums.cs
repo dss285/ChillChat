@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChillChat.DataModels
 {
+    [Flags]
     public enum ChannelTypeEnum : byte
     {
         TextChannel = 1,

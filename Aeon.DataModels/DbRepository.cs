@@ -82,6 +82,16 @@ namespace Aeon.DataModels
         {
             entity.ObjectInfo.Deleted = true;
         }
+
+        public void Delete<TEntity>(TEntity entity) where TEntity : class
+        {
+            _dbContext.Set<TEntity>().Remove(entity);
+        }
+
+        public void DeleteRange<TEntity>(IEnumerable<TEntity> entities) where TEntity : class
+        {
+            _dbContext.Set<TEntity>().RemoveRange(entities);
+        }
     }
     public class TransactionWrapper : IDisposable
     {

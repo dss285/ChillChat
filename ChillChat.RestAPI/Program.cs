@@ -1,5 +1,4 @@
 using ChillChat.RestAPI.Hubs;
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
@@ -10,25 +9,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 
-
-
-/*
-builder.Services.AddCors(options => {
-    options.AddDefaultPolicy(builder => {
-        builder.WithOrigins("https://127.0.0.1:5173");
-    });
-});
-*/
-
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("https://127.0.0.1:5173",
-                                              "http://127.0.0.1:5173");
-                      });
+    options.AddDefaultPolicy(policy => policy.WithOrigins("http://127.0.0.1:5173").AllowCredentials().AllowAnyHeader().AllowAnyMethod());
 });
 
 
@@ -40,12 +23,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.MapHub<ChatHub>("/Chat");
+app.UseCors();
 
 app.UseHttpsRedirection();
-app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 
+app.MapHub<ChatHub>("/Chat");
 app.MapControllers();
 
 

@@ -5,7 +5,7 @@
 
 
 	//This might cause CORS trouble later
-	let hubURL = "https://localhost:7069/chat/"
+	let hubURL = "https://localhost:7139/Chat/"
 	let connection = new signalR.HubConnectionBuilder().withUrl(hubURL).build();
 
 	connection.on("send", data => {

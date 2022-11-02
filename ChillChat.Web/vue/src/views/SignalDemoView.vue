@@ -1,69 +1,50 @@
-
 <script setup lang="ts">
+    import {ref} from "vue"
 	import * as signalR from "@microsoft/signalr";
-	//https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-6.0&tabs=visual-studio
 
+    const props = defineProps<{
+        username: string,
+        message: string,
+        timestamp: string,
+        connection: string,
+    }>()
 
-	//This might cause CORS trouble later
 	let hubURL = "https://localhost:7139/Chat/"
-	let connection = new signalR.HubConnectionBuilder().withUrl(hubURL).build();
+	let connection = new signalR.HubConnectionBuilder().withUrl(hubURL).withAutomaticReconnect().build();
 
-	connection.on("send", data => {
-		console.log(data);
+    connection.start().then(function() {})
+
+
+    let username = ref("TeppoTesti")
+    let message = ref("")
+    let timestamp = ref("")
+
+    function MessageSend() {
+        let tstamp = Math.floor(Date.now() / 1000)
+
+		try {
+			connection.invoke("MessageSent",username.value,message.value,tstamp);
+			console.log("Sent")
+		} catch(err) {
+			console.log(err)
+		}
+    }
+
+	connection.on("ReceiveMessage", (user, message) => {
+        console.log("Message recieved: "+user+" "+message)
+		document.querySelector("#text").innerHTML += "Message recieved: "+user+" "+message+"<br>"
 	});
-
-
-
-	//FIXME: Use correct "packet" names
-	connection.start().then(function() {
-
-		
-		document.querySelector("#send")?.addEventListener("click",function(){
-			console.log("Click")
-			let user = document.querySelector("#user")
-			let message = document.querySelector("#message")
-			let tstamp = Math.floor(Date.now() / 1000)
-			try {
-				connection.invoke("send",user,message,tstamp);
-			} catch(err) {
-				console.log(err)
-			}
-		});
-	});
-
 </script>
 
-
-
 <template>
-
- <table>
-	<thead>
-
-		<tr>
-			<th>username</th>
-			<th>message</th>
-			<th>time</th>
-		</tr>
-	</thead>
-	<tbody>
-
-		<tr>
-			<td>a</td>
-			<td>b</td>
-			<td>c</td>
-		</tr>
-	</tbody>
-</table>
-
-
-<div class="box">
-	<p>send message</p>
-	<input value="testipekka" name="user" id="user">
-	<input value="" placeholder="message" id="message">
-	<button id="send">Send</button>
-</div>
-
+    <div>
+        <input v-model="username" @change="username=username" placeholder="username">
+        <input v-model="message" placeholder="message">
+        <button @click="MessageSend()">Send</button>
+        <p>Message: {{ message }}</p>
+		<hr>
+		<p id="text"></p>
+    </div>
 
 </template>
 

@@ -35,6 +35,7 @@ namespace Aeon.DataModels
     public interface IObjectInfo
     {
         public ObjectInfo ObjectInfo { get; set; }
+
     }
     public abstract class BaseDbContext : DbContext, IDbContext
     {

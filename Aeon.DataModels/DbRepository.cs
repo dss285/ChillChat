@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using NodaTime;
 
 namespace Aeon.DataModels
 {
@@ -34,7 +35,23 @@ namespace Aeon.DataModels
         }
         public void SaveChanges()
         {
+            foreach (var entry in _dbContext.ChangeTracker.Entries<IObjectInfo>())
+            {
+                UpdateObjectInfo(entry.Entity);
+            }
             _dbContext.SaveChanges();
+        }
+        public void UpdateObjectInfo(IObjectInfo entry)
+        {
+            if (entry.ObjectInfo == null)
+            {
+                entry.ObjectInfo = new ObjectInfo();
+            } 
+            else
+            {
+                entry.ObjectInfo.Modified = SystemClock.Instance.GetCurrentInstant().InUtc();
+                entry.ObjectInfo.Modifier = "modifier (temporary)";
+            }
         }
         public async Task SaveChangesAsync()
         {

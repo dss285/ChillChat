@@ -14,6 +14,7 @@ for(let i = 0; i < 10; i++) {
     server.Channels = []
     for(let j = 0; j < 10; j++) {
         let channel = new Channel();
+        channel.ChannelId = (i+1)*(j+1);
         channel.Name = `${server.Name} - ${i}x${j}`
         channel.ChannelType = ChannelType.TextChannel;
         server.Channels.push(channel);
@@ -32,10 +33,16 @@ let chooseServer =  (server : Server) => {
 <template>
   <main>
     <div>
-        <li v-for="server of servers" @click="chooseServer(server)">
-            {{server.Name}} - {{server.Channels.length}}
+      <h2>Servers</h2>
+      <ul >
+        <li v-for="server of servers" @click="chooseServer(server)" style="display:inline-block;">
+          | {{server.Name}} - {{server.Channels.length}} |
         </li>
+      </ul>
+
     </div>
-    <div v-if="chosenServer != null"><ServerComponent :server="chosenServer"></ServerComponent></div>
+    <div v-if="chosenServer != null">
+      <ServerComponent :server="chosenServer"></ServerComponent>
+    </div>
   </main>
 </template>

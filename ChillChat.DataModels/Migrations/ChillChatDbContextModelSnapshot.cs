@@ -17,7 +17,7 @@ namespace ChillChat.DataModels.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -94,7 +94,7 @@ namespace ChillChat.DataModels.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("ChillChat.DataModels.ObjectInfo", "ObjectInfo", b1 =>
+                    b.OwnsOne("Aeon.DataModels.ObjectInfo", "ObjectInfo", b1 =>
                         {
                             b1.Property<int>("ChannelId")
                                 .HasColumnType("integer");
@@ -136,7 +136,7 @@ namespace ChillChat.DataModels.Migrations
                         .WithMany()
                         .HasForeignKey("ChannelId");
 
-                    b.OwnsOne("ChillChat.DataModels.ObjectInfo", "ObjectInfo", b1 =>
+                    b.OwnsOne("Aeon.DataModels.ObjectInfo", "ObjectInfo", b1 =>
                         {
                             b1.Property<int>("MessageId")
                                 .HasColumnType("integer");
@@ -174,7 +174,7 @@ namespace ChillChat.DataModels.Migrations
 
             modelBuilder.Entity("ChillChat.DataModels.Server", b =>
                 {
-                    b.OwnsOne("ChillChat.DataModels.ObjectInfo", "ObjectInfo", b1 =>
+                    b.OwnsOne("Aeon.DataModels.ObjectInfo", "ObjectInfo", b1 =>
                         {
                             b1.Property<int>("ServerId")
                                 .HasColumnType("integer");

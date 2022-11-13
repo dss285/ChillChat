@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using NodaTime;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -20,8 +21,8 @@ namespace ChillChat.DataModels.Migrations
                     ObjectInfo_Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     ObjectInfo_Creator = table.Column<string>(type: "text", nullable: false),
                     ObjectInfo_Modifier = table.Column<string>(type: "text", nullable: false),
-                    ObjectInfo_Modified = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    ObjectInfo_Created = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    ObjectInfo_Modified = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false),
+                    ObjectInfo_Created = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,8 +41,8 @@ namespace ChillChat.DataModels.Migrations
                     ObjectInfo_Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     ObjectInfo_Creator = table.Column<string>(type: "text", nullable: false),
                     ObjectInfo_Modifier = table.Column<string>(type: "text", nullable: false),
-                    ObjectInfo_Modified = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    ObjectInfo_Created = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    ObjectInfo_Modified = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false),
+                    ObjectInfo_Created = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,8 +66,8 @@ namespace ChillChat.DataModels.Migrations
                     ObjectInfo_Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     ObjectInfo_Creator = table.Column<string>(type: "text", nullable: false),
                     ObjectInfo_Modifier = table.Column<string>(type: "text", nullable: false),
-                    ObjectInfo_Modified = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    ObjectInfo_Created = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    ObjectInfo_Modified = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false),
+                    ObjectInfo_Created = table.Column<ZonedDateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

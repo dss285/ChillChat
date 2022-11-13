@@ -14,21 +14,11 @@ namespace ChillChat.DataModels
         public ChillChatDbContext()
         {
         }
-        public ChillChatDbContext(bool useMock)
-        {
-            _useMock = useMock;
-        }
 
 
         public DbSet<Server> Servers { get; set; }
         public DbSet<Channel> Channels { get; set; }
         public DbSet<Message> Messages { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (_useMock)
-                optionsBuilder.UseInMemoryDatabase("mockDatabase");
-            else
-                optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=dss285;Password=aeon123");
-        }
+        protected override string ConnectionString { get; set; } = "Host=localhost;Database=postgres;Username=dss285;Password=aeon123";
     }
 }

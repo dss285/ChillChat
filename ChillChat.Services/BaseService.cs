@@ -34,15 +34,17 @@ namespace ChillChat.Services
         }
         public TEntity? Find(Expression<Func<TEntity, bool>> pred)
         {
+            return FindInternal(pred).FirstOrDefault();
+        }
+        public IQueryable<TEntity> FindInternal(Expression<Func<TEntity, bool>> pred)
+        {
             var query = _repository.FindExisting(pred);
-            return query.FirstOrDefault();
+            return query;
         }
         public TViewModel? GetByExpression(Expression<Func<TEntity, bool>> pred)
         {
-            var query = Find(pred);
-            if(query != null)
-                return MapToModel(query);
-            return null;
+            var query = FindInternal(pred).Select(t => MapToModel(t));
+            return query.FirstOrDefault();
         }
         protected TEntity Save(TViewModel model, Expression<Func<TEntity, bool>> pred)
         {
@@ -68,6 +70,15 @@ namespace ChillChat.Services
         public void Insert(TEntity entity)
         {
             _repository.Insert(entity);
+        }
+        public void Delete(TEntity entity, bool soft=true)
+        {
+            if (soft)
+                _repository.SoftDelete(entity);
+            else
+                _repository.Delete(entity);
+
+            _repository.SaveChanges();
         }
     }
 }

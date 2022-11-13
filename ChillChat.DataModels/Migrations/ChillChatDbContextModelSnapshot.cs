@@ -4,6 +4,7 @@ using ChillChat.DataModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using NodaTime;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -99,7 +100,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<int>("ChannelId")
                                 .HasColumnType("integer");
 
-                            b1.Property<DateTimeOffset>("Created")
+                            b1.Property<ZonedDateTime>("Created")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Creator")
@@ -109,7 +110,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<bool>("Deleted")
                                 .HasColumnType("boolean");
 
-                            b1.Property<DateTimeOffset>("Modified")
+                            b1.Property<ZonedDateTime>("Modified")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Modifier")
@@ -141,7 +142,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<int>("MessageId")
                                 .HasColumnType("integer");
 
-                            b1.Property<DateTimeOffset>("Created")
+                            b1.Property<ZonedDateTime>("Created")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Creator")
@@ -151,7 +152,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<bool>("Deleted")
                                 .HasColumnType("boolean");
 
-                            b1.Property<DateTimeOffset>("Modified")
+                            b1.Property<ZonedDateTime>("Modified")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Modifier")
@@ -179,7 +180,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<int>("ServerId")
                                 .HasColumnType("integer");
 
-                            b1.Property<DateTimeOffset>("Created")
+                            b1.Property<ZonedDateTime>("Created")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Creator")
@@ -189,7 +190,7 @@ namespace ChillChat.DataModels.Migrations
                             b1.Property<bool>("Deleted")
                                 .HasColumnType("boolean");
 
-                            b1.Property<DateTimeOffset>("Modified")
+                            b1.Property<ZonedDateTime>("Modified")
                                 .HasColumnType("timestamp with time zone");
 
                             b1.Property<string>("Modifier")

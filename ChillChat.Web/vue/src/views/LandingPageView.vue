@@ -3,7 +3,10 @@ import TheWelcome from "../components/TheWelcome.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <main class="landing">
+
+
+
+        <p>This is a landing page</p>
+    </main>
 </template>

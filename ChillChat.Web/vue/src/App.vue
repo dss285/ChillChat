@@ -1,6 +1,7 @@
 <script setup lang="ts">
 //import "./assets/styles/style.sass";
 import { RouterLink, RouterView } from "vue-router";
+import Navbar from "./components/landing/Navbar.vue";
 //import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
@@ -9,14 +10,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
 	<header>
-		<div class="wrapper">
-			<nav>
-				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
-				<RouterLink to="/chat">chat</RouterLink>
-				<RouterLink to="/signaldemo">SignalR demo</RouterLink>
-			</nav>
-		</div>
+        <Navbar></Navbar>
 	</header>
 
 	<RouterView />
@@ -24,23 +18,51 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 
-<style scoped lang="scss">
-  //@import "./assets/styles/style.sass";
+<style lang="scss">
 
-nav {
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
 
-	li { display: inline-block; }
+:root {
+    //Primary colors
+    //primary,secondary,tertiary,quaternary, quinary, senary, septenary, octonary, nonary, denary
+    --color-primary: black;
+    --color-secondary: gray;
+    --color-tertiary: lightgray;
+    --color-quaternary: white;
 
-	a {
-		display: block;
-		padding: 6px 12px;
-		text-decoration: none;
-	}
-}  
+    //Spesific decoration colors
+    --color-deco-purple: purple;
+
+    //Color utility
+    //These are meant for warnings etc....
+    --color-utility-green: green;
+    --color-utility-yellow: yellow;
+    --color-utility-red: red;
+
+    //Font settings
+    --setting-font-size: 16px;
+    --setting-font-color: var(var(--color-quaternary));
+
+    //Padding & rounding
+    --setting-padding-primary: 10px;
+    --setting-padding-secondary: 5px;
+    --setting-Bradius-primary: 5px;
+
+    //Misc
+    --setting-scrollbehavior: smooth;
+
+
+}
+
+html {
+    scroll-behavior: var(--setting-scrollbehavior);
+    font-size: var(--setting-font-size);
+
+}
+
+.landing {
+
+    background-color: var(--color-primary);
+    min-height: 100vh;
+}
 
 </style>

@@ -27,3 +27,9 @@ export class Channel {
     public ChannelType : ChannelType;
     public ObjectInfo : ObjectInfo;
 }
+
+export class MessageSendModel {
+    constructor(public User : string = "", public Message : string = "", public TimeStamp : Moment | null = null) {
+
+    };
+}

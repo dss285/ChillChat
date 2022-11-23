@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using ChillChat.RestAPI.Hubs.Models;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ChillChat.RestAPI.Hubs
 {
     public class ChatHub : Hub
     {
-        public async Task MessageSent(string user, string message, int times) { 
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+        public async Task MessageSend(MessageModel model) {
+
+            await Clients.All.SendAsync("ReceiveMessage", model);
         } 
     }
 }

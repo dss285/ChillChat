@@ -1,4 +1,4 @@
-namespace ChillChat.RestAPI
+namespace ChillChat.Server
 {
     public class WeatherForecast
     {

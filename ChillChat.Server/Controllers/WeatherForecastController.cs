@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ChillChat.RestAPI.Controllers
+namespace ChillChat.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

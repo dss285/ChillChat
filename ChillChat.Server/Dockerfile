@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ChillChat.RestAPI/ChillChat.RestAPI.csproj", "ChillChat.RestAPI/"]
-RUN dotnet restore "ChillChat.RestAPI/ChillChat.RestAPI.csproj"
+COPY ["ChillChat.Server/ChillChat.Server.csproj", "ChillChat.Server/"]
+RUN dotnet restore "ChillChat.Server/ChillChat.Server.csproj"
 COPY . .
-WORKDIR "/src/ChillChat.RestAPI"
-RUN dotnet build "ChillChat.RestAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/ChillChat.Server"
+RUN dotnet build "ChillChat.Server.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ChillChat.RestAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "ChillChat.Server.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ChillChat.RestAPI.dll"]
+ENTRYPOINT ["dotnet", "ChillChat.Server.dll"]

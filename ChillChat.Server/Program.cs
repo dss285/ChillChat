@@ -1,4 +1,4 @@
-using ChillChat.RestAPI.Hubs;
+using ChillChat.Server.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
@@ -11,7 +11,7 @@ builder.Services.AddSignalR().AddJsonProtocol(options => options.PayloadSerializ
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy => policy.WithOrigins("http://127.0.0.1:5173").AllowCredentials().AllowAnyHeader().AllowAnyMethod());
+    options.AddDefaultPolicy(policy => policy.SetIsOriginAllowed((_) => true).AllowCredentials().AllowAnyHeader().AllowAnyMethod());
 });
 
 

@@ -1,4 +1,4 @@
-﻿using Aeon.DataModels;
+﻿using Aeon.Core;
 using ChillChat.DataModels;
 
 namespace ChillChat.Services

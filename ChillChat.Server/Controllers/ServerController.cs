@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ChillChat.RestAPI.Controllers
+namespace ChillChat.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -32,7 +32,7 @@ namespace ChillChat.RestAPI.Controllers
         public void Post([FromBody] ServerViewModel model)
         {
             var ser = new ServerService(_repository);
-            var dbModel = ser.Save(model);
+            _ = ser.Save(model);
             return;
         }
 

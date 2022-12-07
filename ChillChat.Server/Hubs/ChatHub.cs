@@ -1,7 +1,7 @@
-﻿using ChillChat.RestAPI.Hubs.Models;
+﻿using ChillChat.Server.Hubs.Models;
 using Microsoft.AspNetCore.SignalR;
 
-namespace ChillChat.RestAPI.Hubs
+namespace ChillChat.Server.Hubs
 {
     public class ChatHub : Hub
     {

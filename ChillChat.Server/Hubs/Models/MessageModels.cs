@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace ChillChat.RestAPI.Hubs.Models
+namespace ChillChat.Server.Hubs.Models
 {
     [DataContract]
     public class MessageModel

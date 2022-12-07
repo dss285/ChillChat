@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ChillChat.RestAPI": {
+    "ChillChat.Server": {
       "commandName": "Project",
       "launchUrl": "swagger",
       "environmentVariables": {

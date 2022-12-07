@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Aeon.DataModels;
+using Aeon.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChillChat.DataModels

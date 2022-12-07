@@ -5,14 +5,12 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFApp", "EFApp\EFApp.csproj", "{3ED55905-AC13-4C81-ADB3-0C6513CCACF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aeon.DataModels", "Aeon.DataModels\Aeon.DataModels.csproj", "{33E04964-6AB1-4181-8273-CBA080323FED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8C21DA26-9648-4F12-8088-88AF36893F0F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.RestAPI", "ChillChat.RestAPI\ChillChat.RestAPI.csproj", "{5740C3BD-2268-496F-9657-5C9C0951EFFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.Server", "ChillChat.Server\ChillChat.Server.csproj", "{5740C3BD-2268-496F-9657-5C9C0951EFFC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.DataModels", "ChillChat.DataModels\ChillChat.DataModels.csproj", "{E2FB9789-8D6F-4837-930C-FBA81B298293}"
 EndProject
@@ -20,7 +18,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.Services", "Chill
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.UnitTests", "ChillChat.UnitTests\ChillChat.UnitTests.csproj", "{5EC28C96-C0B0-45B2-8AB7-B5FC52A462DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillChat.Web", "ChillChat.Web\ChillChat.Web.csproj", "{4D444536-09F2-441A-9A4D-24D9F5C98E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.Web", "ChillChat.Web\ChillChat.Web.csproj", "{4D444536-09F2-441A-9A4D-24D9F5C98E41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aeon.Core", "Aeon.Core\Aeon.Core.csproj", "{65263BEA-7462-4FE6-8049-6EF80BAB34BB}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ChillChat.Vue", "ChillChat.Vue\ChillChat.Vue.esproj", "{0E6FC288-865E-49ED-AD5A-8475FD844CED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +34,6 @@ Global
 		{3ED55905-AC13-4C81-ADB3-0C6513CCACF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED55905-AC13-4C81-ADB3-0C6513CCACF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED55905-AC13-4C81-ADB3-0C6513CCACF3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33E04964-6AB1-4181-8273-CBA080323FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33E04964-6AB1-4181-8273-CBA080323FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33E04964-6AB1-4181-8273-CBA080323FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33E04964-6AB1-4181-8273-CBA080323FED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5740C3BD-2268-496F-9657-5C9C0951EFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5740C3BD-2268-496F-9657-5C9C0951EFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5740C3BD-2268-496F-9657-5C9C0951EFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -56,6 +54,16 @@ Global
 		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D444536-09F2-441A-9A4D-24D9F5C98E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿using Aeon.DataModels;
+﻿using Aeon.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChillChat.DataModels
 {
-    public class ChillChatDbContext : BaseDbContext
+    public class ChillChatDbContext : BaseDbContext, IBaseDbContext
     {
         public ChillChatDbContext()
         {

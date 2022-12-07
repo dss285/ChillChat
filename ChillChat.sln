@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillChat.Web", "ChillChat.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aeon.Core", "Aeon.Core\Aeon.Core.csproj", "{65263BEA-7462-4FE6-8049-6EF80BAB34BB}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ChillChat.Vue", "ChillChat.Vue\ChillChat.Vue.esproj", "{0E6FC288-865E-49ED-AD5A-8475FD844CED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,12 @@ Global
 		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65263BEA-7462-4FE6-8049-6EF80BAB34BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6FC288-865E-49ED-AD5A-8475FD844CED}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

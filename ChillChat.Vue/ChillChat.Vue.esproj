@@ -3,11 +3,11 @@
     <!-- Command to run on project build -->
     <!-- Command to run on project build -->
     <BuildCommand>
-		taskkill /f /im node.exe
+		npx kill-port 5173
 	</BuildCommand>
     <!-- Command to run on project clean -->
     <CleanCommand>
-    </CleanCommand>
+	</CleanCommand>
     <StartupCommand>
     </StartupCommand>
   </PropertyGroup>

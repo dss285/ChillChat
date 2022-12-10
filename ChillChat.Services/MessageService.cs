@@ -23,6 +23,13 @@ namespace ChillChat.Services
             _repository.SaveChanges();
             return ret;
         }
+        public override async Task<Message> SaveAsync(MessageViewModel model)
+        {
+            var ret = await base.SaveAsync(model, t => t.MessageId == model.MessageId);
+            await _repository.SaveChangesAsync();
+            return ret;
+
+        }
 
         protected override Message MapFromModel(MessageViewModel model)
         {

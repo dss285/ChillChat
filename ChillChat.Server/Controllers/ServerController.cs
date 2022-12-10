@@ -1,6 +1,8 @@
 ﻿using ChillChat.DataModels;
+using ChillChat.Server.Hubs;
 using ChillChat.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,7 +12,15 @@ namespace ChillChat.Server.Controllers
     [ApiController]
     public class ServerController : ControllerBase
     {
-        private ChillChatDbRepository _repository = new ChillChatDbRepository();
+        private readonly ChillChatDbRepository _repository;
+        private readonly IHubContext<ChatHub> _hubContext;
+
+        public ServerController(ChillChatDbRepository repository, IHubContext<ChatHub> hubContext)
+        {
+            _repository = repository;
+            _hubContext = hubContext;
+        }
+
         // GET: api/<ServerController>
         [HttpGet]
         public IEnumerable<ServerViewModel> Get()
@@ -29,20 +39,22 @@ namespace ChillChat.Server.Controllers
 
         // POST api/<ServerController>
         [HttpPost]
-        public void Post([FromBody] ServerViewModel model)
+        public async Task Post([FromBody] ServerViewModel model)
         {
             var ser = new ServerService(_repository);
             _ = ser.Save(model);
+            await _hubContext.Clients.All.SendAsync(ChatSchema.ServerPost.Event, model);
             return;
         }
 
         // PUT api/<ServerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ServerViewModel model)
+        public async void Put(int id, [FromBody] ServerViewModel model)
         {
             model.ServerId = id;
-            var ser = new ServerService(_repository);
-            var dbModel = ser.Save(model);
+            ServerService ser = new(_repository);
+            _ = ser.Save(model);
+            await _hubContext.Clients.All.SendAsync(ChatSchema.ServerPut.Event, model);
             return;
         }
 

@@ -47,6 +47,17 @@ namespace Aeon.Core
         }
         public async Task SaveChangesAsync()
         {
+            var changeTracker = _dbContext.ChangeTracker.Entries<IObjectInfo>();
+            foreach (var entry in changeTracker)
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        if (entry.Entity.ObjectInfo == null)
+                            entry.Entity.ObjectInfo = new ObjectInfo();
+                        break;
+                }
+            }
             await _dbContext.SaveChangesAsync();
         }
         public void Insert<TEntity>(TEntity entity) where TEntity : class

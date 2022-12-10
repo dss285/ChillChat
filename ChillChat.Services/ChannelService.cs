@@ -28,6 +28,13 @@ namespace ChillChat.Services
             return ret;
         }
 
+        public async override Task<Channel> SaveAsync(ChannelViewModel model)
+        {
+            var ret = await base.SaveAsync(model, t => t.ChannelId == model.ChannelId);
+            await _repository.SaveChangesAsync();
+            return ret;
+        }
+
         protected override Channel MapFromModel(ChannelViewModel model)
         {
             return new Channel

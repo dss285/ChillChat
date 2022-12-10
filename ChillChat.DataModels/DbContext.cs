@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +14,21 @@ namespace ChillChat.DataModels
     {
         public ChillChatDbContext()
         {
-        }
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            IConfiguration configuration = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
                 .AddJsonFile("appsettings.json")
                 .Build();
+        }
+        public ChillChatDbContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
 
-            optionsBuilder.UseNpgsql(configuration.GetConnectionString("Default") ?? "",
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("Default") ?? "",
                 o => o.UseNodaTime());
         }
 

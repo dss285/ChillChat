@@ -70,46 +70,61 @@ html {
 .landing {
     
     background-color: var(--color-primary);
-    background: rgb(20,53,238);
-    background: linear-gradient(140deg, rgba(20,53,238,1) 0%, rgba(12,18,54,1) 20%, rgba(0,0,0,1) 100%); 
-
-
-    min-height: 100vh;
     color: var(--setting-font-color);
     font-family: 'Kanit', sans-serif;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
 
-    .promobox {
-        margin-top: 20vh;
-        text-align: center;
-        font-size: 1.5em;
+    section {
+        padding: var(--setting-padding-primary);
+    }
+
+    section.top {
+        background-color: rgb(20,53,238);
+        background: linear-gradient(140deg, rgba(20,53,238,1) 0%, rgba(12,18,54,1) 20%, rgba(0,0,0,1) 100%); 
+        min-height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 93% 88%, 79% 94%, 64% 98%, 53% 92%, 30% 95%, 15% 93%, 0 100%);
+        .promobox {
+            margin-top: 20vh;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
         .title {
             font-size: 3em;
         }
-    }
 
-    
-    .services {
-        margin-top: 20vh;
-        .servicebox {
-            border: 4px solid var(--color-secondary);
-            border-radius: var(--setting-Bradius-secondary);
-            padding: var(--setting-padding-secondary);
-            transition: var(--setting-transition-primary);
-            cursor: pointer;
-
-            &:hover {
-                border: 4px solid var(--color-tertiary);
-                //box-shadow: 0px 0px 45px 10px rgba(238, 17, 164, 0.75);
+        .services {
+            margin-top: 20vh;
+            margin-bottom: 20vh;
+            .servicebox {
+                border: 4px solid var(--color-secondary);
+                border-radius: var(--setting-Bradius-secondary);
+                padding: var(--setting-padding-secondary);
+                transition: var(--setting-transition-primary);
+                cursor: pointer;
+        
+                &:hover {
+                    border: 4px solid var(--color-tertiary);
+                    //box-shadow: 0px 0px 45px 10px rgba(238, 17, 164, 0.75);
+                }
+            }
+        
+            .title {
+                text-align: center;
+                padding: var(--setting-Bradius-secondary);
+                margin-bottom: var(--margin-primary)
             }
         }
-
-        .title {
-            text-align: center;
-            padding: var(--setting-Bradius-secondary);
-            margin-bottom: var(--margin-primary)
-        }
     }
-    
+
+
+    section.center {
+        background-color: var(--color-primary);
+        height: 200vh;
+    }
 }
+
 
 </style>

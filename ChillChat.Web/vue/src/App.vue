@@ -32,6 +32,8 @@ import Navbar from "./components/landing/Navbar.vue";
 
     //Spesific decoration colors
     --color-deco-purple: purple;
+    --color-deco-darkbrown: rgb(58, 36, 15);
+    --color-deco-blue: #0B1030;
 
     //Color utility
     //These are meant for warnings etc....
@@ -57,6 +59,7 @@ import Navbar from "./components/landing/Navbar.vue";
     --margin-primary: 50px;
     --margin-secondary: 25px;
     --margin-tertiary: 15px;
+    --margin-large: 250px;
 
 
 }
@@ -66,6 +69,9 @@ html {
     font-size: var(--setting-font-size);
     
 }
+
+.btn-full {width: 100%;}
+.btn-half {width: 50%;}
 
 .landing {
     
@@ -121,8 +127,31 @@ html {
 
 
     section.center {
+        margin-top: var(--margin-large);
         background-color: var(--color-primary);
-        height: 200vh;
+        min-height: 100vh;
+
+
+        section.textimgarea {
+            font-size: 1.5em;
+            border-bottom: 4px solid var(--color-secondary);
+            margin-top: var(--margin-primary);
+
+            .button {
+                margin-top: var(--margin-primary);
+            }
+
+            img {
+                border-radius: var(--setting-Bradius-primary);
+            }
+        }
+    }
+
+
+    footer {
+        min-height: 20vh;
+        background-color: var(--color-deco-blue);
+        margin-top: var(--margin-primary);
     }
 }
 

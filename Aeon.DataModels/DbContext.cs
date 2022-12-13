@@ -39,7 +39,6 @@ namespace Aeon.DataModels
     }
     public abstract class BaseDbContext : DbContext, IDbContext
     {
-        protected abstract string ConnectionString { get; set; }
         public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
         {
             return Set<TEntity>();
@@ -79,11 +78,6 @@ namespace Aeon.DataModels
             {
                 return new TransactionWrapper(transaction, false);
             }
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(ConnectionString, 
-                o => o.UseNodaTime());
         }
     }
 

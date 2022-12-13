@@ -13,8 +13,10 @@ import Navbar from "./components/landing/Navbar.vue";
         <Navbar></Navbar>
 	</header>
 
-	<RouterView />
 
+    <Suspense>
+        <RouterView />
+    </Suspense>
 </template>
 
 

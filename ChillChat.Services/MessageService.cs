@@ -1,4 +1,4 @@
-﻿using Aeon.DataModels;
+﻿using Aeon.Core;
 using ChillChat.DataModels;
 
 namespace ChillChat.Services
@@ -22,6 +22,13 @@ namespace ChillChat.Services
             var ret = base.Save(model, t => t.MessageId == model.MessageId);
             _repository.SaveChanges();
             return ret;
+        }
+        public override async Task<Message> SaveAsync(MessageViewModel model)
+        {
+            var ret = await base.SaveAsync(model, t => t.MessageId == model.MessageId);
+            await _repository.SaveChangesAsync();
+            return ret;
+
         }
 
         protected override Message MapFromModel(MessageViewModel model)

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import LandingPageView from "../views/LandingPageView.vue";
 import SignalDemoView from "../views/SignalDemoView.vue";
 
 const router = createRouter({
@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: LandingPageView,
     },
     {
       path: "/about",

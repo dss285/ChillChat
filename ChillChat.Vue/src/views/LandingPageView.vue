@@ -5,7 +5,7 @@
 <template>
     <main class="container-fluid landing">
 
-
+        
         <section class="top row">
             <div class="col-md-12">
 

@@ -28,7 +28,7 @@ import Navbar from "./components/landing/Navbar.vue";
     //Primary colors
     //primary,secondary,tertiary,quaternary, quinary, senary, septenary, octonary, nonary, denary
     --color-primary: black;
-    --color-secondary: gray;
+    --color-secondary: #3c3e4a;
     --color-tertiary: lightgray;
     --color-quaternary: white;
 
@@ -66,10 +66,11 @@ import Navbar from "./components/landing/Navbar.vue";
 
 }
 
-html {
+html,main {
+    background-color: var(--color-secondary);
     scroll-behavior: var(--setting-scrollbehavior);
     font-size: var(--setting-font-size);
-    
+    color: var(--setting-font-color);
 }
 
 .btn-full {width: 100%;}
@@ -107,6 +108,7 @@ html {
             margin-top: 20vh;
             margin-bottom: 20vh;
             .servicebox {
+                margin-bottom: var(--margin-primary);
                 border: 4px solid var(--color-secondary);
                 border-radius: var(--setting-Bradius-secondary);
                 padding: var(--setting-padding-secondary);

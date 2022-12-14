@@ -1,9 +1,9 @@
 <template>
 
 
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">ChillChat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,11 +15,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/about">ChillChat</RouterLink>
+                    <RouterLink class="nav-link" to="/chat">Chat</RouterLink>
                 </li>
 
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/chat">Services</RouterLink>
+                    <RouterLink class="nav-link" to="/services">Services</RouterLink>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -36,8 +36,7 @@
             </ul>
 
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <router-link class="btn btn-outline-success btn-full" to="/login">Login</router-link>
             </form>
         </div>
     </div>

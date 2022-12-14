@@ -10,6 +10,38 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChillChat.DataModels
 {
+    public class User : IObjectInfo
+    {
+        [Key] 
+        public int UserId { get; set; }
+
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+
+        public virtual ObjectInfo ObjectInfo { get; set; }
+        public virtual IEnumerable<Member> Memberships { get; set; }
+    }
+
+    public class Member : IObjectInfo
+    {
+        [Key]
+        public int MemberId { get; set; }
+        public string DisplayName { get; set; }
+
+        public int ServerId { get; set; }
+        [ForeignKey("ServerId")]
+        public virtual Server Server { get; set; }
+
+
+        public int UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+
+
+
+        public virtual ObjectInfo ObjectInfo { get; set; }
+    }
+
     public class Server : IObjectInfo
     {
         [Key]
@@ -17,6 +49,8 @@ namespace ChillChat.DataModels
         public string Name { get; set; }
         public List<Channel> Channels { get; set; }
         public virtual ObjectInfo ObjectInfo { get; set; }
+        public virtual IEnumerable<Member> Members { get; set; }
+
     }
     public class Channel : IObjectInfo
     {
@@ -37,6 +71,10 @@ namespace ChillChat.DataModels
         [Key]
         public int MessageId { get; set; }
         public string Content { get; set; }
+
+        public int MemberId { get; set; }
+        [ForeignKey("MemberId")]
+        public Member Member { get; set; }
 
         public int? ChannelId { get; set; }
         [ForeignKey("ChannelId")]

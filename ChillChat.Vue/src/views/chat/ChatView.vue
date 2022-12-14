@@ -2,7 +2,7 @@
 import { ChannelType } from "@/models/enums";
 import { Channel, Server } from "@/models/models";
 import { ref, type Ref } from "vue";
-import ServerComponent from "../../components/chat/ServerComponent.vue";
+//import ServerComponent from "../../components/chat/ServerComponent.vue";
 
 const servers : Server[] = [];
 const chosenServer : Ref<Server|null> = ref(null);

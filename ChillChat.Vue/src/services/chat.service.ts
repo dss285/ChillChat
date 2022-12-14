@@ -44,7 +44,6 @@ export interface IChatSchema {
     MESSAGE_POST : IChatHubEntry;
     MESSAGE_REMOVE : IChatHubEntry;
     MESSAGE_PUT : IChatHubEntry;
-
 }
 export class ChatHubService extends SignalRHubService {
     constructor(hubUrl : string) {

@@ -1,10 +1,12 @@
 ﻿using Aeon.Core;
 using ChillChat.DataModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChillChat.Services
 {
     public class MessageViewModel
     {
+        public int MemberId { get; set; }
         public int MessageId { get; set; }
         public string Content { get; set; }
         public ObjectInfo ObjectInfo { get; set; }
@@ -25,6 +27,8 @@ namespace ChillChat.Services
         }
         public override async Task<Message> SaveAsync(MessageViewModel model)
         {
+            var uid = await _repository.FindExisting<Member>(t => t.MemberId == model.MemberId).FirstOrDefaultAsync();
+            if (uid == null) { return null; }
             var ret = await base.SaveAsync(model, t => t.MessageId == model.MessageId);
             await _repository.SaveChangesAsync();
             return ret;
@@ -34,6 +38,7 @@ namespace ChillChat.Services
         protected override Message MapFromModel(MessageViewModel model)
         {
             return new Message { 
+                MemberId = model.MemberId,
                 MessageId=model.MessageId,
                 ObjectInfo=model.ObjectInfo, 
                 Content=model.Content, 

@@ -29,7 +29,7 @@ export class Channel {
 }
 
 export class MessageSendModel {
-    constructor(public User : string = "", public Message : string = "", public TimeStamp : Moment | null = null) {
+    constructor(public UserId : number = 1, public Message : string = "", public TimeStamp : Moment | null = null) {
 
     };
 }

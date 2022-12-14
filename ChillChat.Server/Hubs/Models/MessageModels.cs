@@ -8,7 +8,7 @@ namespace ChillChat.Server.Hubs.Models
     public class MessageModel
     {
         [JsonInclude]
-        public string User { get; set; }
+        public int UserId { get; set; }
         [JsonInclude]
         public string Message { get; set; }
         [JsonInclude]

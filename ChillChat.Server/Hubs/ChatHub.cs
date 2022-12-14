@@ -14,16 +14,21 @@ namespace ChillChat.Server.Hubs
         }
         public async Task SendMessage(MessageModel model) {
 
+
+
+            
             MessageService ser = _serviceProvider.GetRequiredService<MessageService>();
 
             MessageViewModel mvm = new()
             {
+                MemberId = model.UserId,
                 Content = model.Message
             };
-            await ser.SaveAsync(mvm);
+            var res = await ser.SaveAsync(mvm);
 
-
-            await Clients.All.SendAsync(ChatSchema.MessagePost.Event, model);
+            if (res != null)
+                await Clients.All.SendAsync(ChatSchema.MessagePost.Event, model);
+            // send fail ?
         }
         public async Task ServerCreate()
         {

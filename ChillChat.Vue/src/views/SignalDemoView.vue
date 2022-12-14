@@ -24,7 +24,6 @@
 
 <template>
     <div>
-        <input v-model="model.User" placeholder="username">
         <input v-model="model.Message" placeholder="message">
         <button @click="sendMessage()">Send</button>
         <p>Messages</p>

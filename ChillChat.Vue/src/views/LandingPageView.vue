@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import "../assets/styles/landing.scss";
 </script>
 
 <template>

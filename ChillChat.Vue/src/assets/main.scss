@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+:root {
+    //Primary colors
+    //primary,secondary,tertiary,quaternary, quinary, senary, septenary, octonary, nonary, denary
+    --color-primary: black;
+    --color-secondary: #3c3e4a;
+    --color-tertiary: lightgray;
+    --color-quaternary: white;
+
+    //Spesific decoration colors
+    --color-deco-purple: purple;
+    --color-deco-darkbrown: rgb(58, 36, 15);
+    --color-deco-blue: #0B1030;
+
+    //Color utility
+    //These are meant for warnings etc....
+    --color-utility-green: green;
+    --color-utility-yellow: yellow;
+    --color-utility-red: red;
+
+    //Font settings
+    --setting-font-size: 16px;
+    --setting-font-color: white;
+
+    //Padding & rounding
+    --setting-padding-primary: 25px;
+    --setting-padding-secondary: 10px;
+    --setting-Bradius-primary: 5px;
+    --setting-Bradius-secondary: 10px;
+
+    //Misc
+    --setting-scrollbehavior: smooth;
+    --setting-transition-primary: 0.25s;
+
+    //Margins
+    --margin-primary: 50px;
+    --margin-secondary: 25px;
+    --margin-tertiary: 15px;
+    --margin-large: 250px;
+}
+
+
+
+html,main {
+    background-color: var(--color-secondary);
+    scroll-behavior: var(--setting-scrollbehavior);
+    font-size: var(--setting-font-size);
+    color: var(--setting-font-color);
+    font-family: 'Kanit', sans-serif;
+}
+
+.btn-full {width: 100%;}
+.btn-half {width: 50%;}
+
